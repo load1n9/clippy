@@ -55,8 +55,8 @@ let img: Image;
 
 const win = new WindowCanvas({
     title: "Clippy",
-    width: 500,
-    height: 500,
+    width: 5,
+    height: 5,
     resizable: false,
     removeDecorations: true,
     transparent: true,
