@@ -93,7 +93,7 @@ await mainloop(async () => {
         tools: {
             screenshotTool,
         },
-        maxTokens: 100,
+        maxTokens: 20,
         messages,
     });
     // deno-lint-ignore no-explicit-any

@@ -1,6 +1,6 @@
 {
     "tasks": {
-        "server:start": "deno serve -A server.ts",
+       "start": "deno run -A clippy.ts",
         "client:send": "curl -X POST 'http://localhost:8000/' -H 'Content-Type: application/json'"
     }
 }
