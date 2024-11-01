@@ -1,3 +1,4 @@
+// deno-lint-ignore-file no-unused-vars
 import {
     getPrimaryMonitor,
     Image,
@@ -6,21 +7,21 @@ import {
 } from "jsr:@gfx/dwm/ext/canvas";
 import { createOpenAI } from "npm:@ai-sdk/openai";
 import { generateText, Message, tool } from "npm:ai";
-import AutoPilot from "https://deno.land/x/autopilot@0.4.0/mod.ts";
+// import AutoPilot from "https://deno.land/x/autopilot@0.4.0/mod.ts";
 import { z } from "npm:zod";
 import "jsr:@std/dotenv/load";
 
-const pilot = new AutoPilot();
+// const pilot = new AutoPilot();
 
-export const screenshotTool = tool({
-    description: "take a screenshot of the current screen",
-    parameters: z.object({}),
-    execute: async () => {
-        const tempFile = await Deno.makeTempFile();
-        pilot.screenshot(tempFile);
-        return await Deno.readFile(tempFile);
-    },
-});
+// export const screenshotTool = tool({
+//     description: "take a screenshot of the current screen",
+//     parameters: z.object({}),
+//     execute: async () => {
+//         const tempFile = await Deno.makeTempFile();
+//         pilot.screenshot(tempFile);
+//         return await Deno.readFile(tempFile);
+//     },
+// });
 
 const model = createOpenAI({
     apiKey: Deno.env.get("CLIPPY"),
@@ -90,9 +91,9 @@ await mainloop(async () => {
         model: model("gpt-4o", {
             structuredOutputs: true,
         }),
-        tools: {
-            screenshotTool,
-        },
+        // tools: {
+        //     screenshotTool,
+        // },
         maxTokens: 20,
         messages,
     });
